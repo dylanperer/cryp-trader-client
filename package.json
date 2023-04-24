@@ -10,8 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/bootstrap": "^5.2.6",
+    "@types/react-bootstrap": "^0.32.32",
+    "@types/styled-components": "^5.1.26",
+    "@types/websocket": "^1.0.5",
+    "axios": "^1.3.6",
+    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.10",
+    "websocket": "^1.0.34"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
