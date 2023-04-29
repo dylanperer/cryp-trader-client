@@ -37,6 +37,11 @@ export const Log = () => {
           console.log("@> killing refresh");
         }
       }
+      if(index!==0){
+        clearInterval(refresh.current);
+        refresh.current = null;
+        console.log("@> killing refresh");
+      }
     }, [isOpen]);
 
     const date = new Date(lastLogOfSession.createdAt);
@@ -95,7 +100,7 @@ const LogItem = (log: ILog) => {
 
 const StyledLogSection = styled.div`
   display: grid;
-  grid-template-columns: 0.95fr 1.5fr 4fr;
+j,h
   color: #f9f9f9;
   div {
     margin-right: 50px;
