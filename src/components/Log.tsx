@@ -4,9 +4,6 @@ import { fetchLogsAsync, ILog, LogType } from "../api/index";
 
 export const Log = () => {
   const [logItems, setLogItems] = React.useState<Array<Array<ILog>>>([]);
-  const [isFetching, setFetching] = React.useState<boolean | undefined>(
-    undefined
-  );
   const refresh = React.useRef<any>(null);
 
   React.useEffect(() => {
@@ -105,6 +102,7 @@ const StyledLogSection = styled.div`
   }
 `;
 
+//@ts-ignore
 const StyledStatusCircle = styled.span<{
   color: string;
 }>`
