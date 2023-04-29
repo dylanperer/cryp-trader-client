@@ -1,3 +1,7 @@
 export * from './log';
+const prod =   "http://170.64.165.188";
+const dev =  "http://localhost";
 
-export const hostURL = "http://localhost" || "http://170.64.165.188";
+export const hostURL = prod;
+
+

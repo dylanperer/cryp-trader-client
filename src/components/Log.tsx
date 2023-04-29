@@ -48,7 +48,8 @@ export const Log = () => {
         <button
           className="btn btn-primary d-flex justify-content-evenly"
           style={{
-            backgroundColor: index === 0 ?  isOpen? "#3869E2" : "#404040" : "#404040",
+            backgroundColor:
+              index === 0 ? (isOpen ? "#3869E2" : "#404040") : "#404040",
             border: "none",
           }}
           onClick={() => {
@@ -89,7 +90,7 @@ const LogItem = (log: ILog) => {
       <StyledLogSpan logType={log.logLevel}>Module: {log.module}</StyledLogSpan>
       <StyledLogSpan logType={log.logLevel}>Action: {log.action}</StyledLogSpan>
       <StyledLogSpan logType={log.logLevel}>
-        Action: {log.context}
+        {log.context ? `Context: ${log.context}` : ""}
       </StyledLogSpan>
     </StyledLog>
   );
