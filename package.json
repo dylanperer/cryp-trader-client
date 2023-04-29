@@ -6,6 +6,7 @@
   "proxy": "http://170.64.165.188",
   "scripts": {
     "dev": "vite",
+    "live": "git fetch && git reset --hard origin/master && tsc && vite build && vite preview --host",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 00",
     "preview": "vite preview"
