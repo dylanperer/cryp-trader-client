@@ -63,21 +63,6 @@ export type ILog = {
   createdAt: Date
 }
 
-const groupLogsBySessionId = (logs: ILog[]): ILog[][] => {
-  const logsBySessionId: ILog[][] = logs.reduce((acc: ILog[][], curr: ILog) => {
-    const sessionIndex = acc.findIndex(
-      (logs: ILog[]) => logs.length > 0 && logs[0].sessionId === curr.sessionId
-    );
-    if (sessionIndex === -1) {
-      return [...acc, [curr]];
-    }
-    acc[sessionIndex].push(curr);
-    return acc;
-  }, []);
-
-  return logsBySessionId;
-};
-
 export const fetchArchivedSessionsAsync = async (): Promise<Array<{ session: ISession; logs: Array<ILog> }>> => {
   try {
     const res = await fetch(`${hostURL}/log/archive`);
