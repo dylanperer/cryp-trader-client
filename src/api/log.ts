@@ -44,14 +44,23 @@ export interface IServerLog {
   logLevel?: LogType;
 }
 
-export interface ILog {
-  id: number;
-  sessionId: string;
-  module: ModuleType;
-  action: ActionType;
-  logLevel: LogType;
-  context?: string;
-  createdAt: Date;
+
+
+export type ISession = {
+  id: number
+  createdAt: Date
+  hasEnded: string
+  endAt: Date | null
+}
+
+export type ILog = {
+  id: number
+  sessionId: number
+  module: string
+  action: string
+  logLevel: string
+  context: string | null
+  createdAt: Date
 }
 
 const groupLogsBySessionId = (logs: ILog[]): ILog[][] => {
@@ -69,11 +78,21 @@ const groupLogsBySessionId = (logs: ILog[]): ILog[][] => {
   return logsBySessionId;
 };
 
-export const fetchLogsAsync = async (): Promise<Array<Array<ILog>>> => {
+export const fetchArchivedSessionsAsync = async (): Promise<Array<{ session: ISession; logs: Array<ILog> }>> => {
   try {
-    const res = await fetch(`${hostURL}/logs`);
+    const res = await fetch(`${hostURL}/log/archive`);
     const data = await res.json();
-    return groupLogsBySessionId(data);
+    return data;
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
+export const fetchLiveSessionAsync = async (): Promise<{ session: ISession; logs: Array<ILog> }> => {
+  try {
+    const res = await fetch(`${hostURL}/log/live`);
+    const data = await res.json();
+    return data;
   } catch (error: any) {
     return error.message;
   }

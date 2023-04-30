@@ -1,4 +1,4 @@
-import { Log } from "./components/Log";
+import { LogDashboard } from "./components/log/LogDashboard";
 
 export const App = () => {
   return (
@@ -7,7 +7,7 @@ export const App = () => {
       style={{ backgroundColor: "#020303", width: "100vw", height: '100vh' }}
     >
       <div className="d-flex mt-5">
-        <Log />
+        <LogDashboard />
       </div>
     </div>
   );
